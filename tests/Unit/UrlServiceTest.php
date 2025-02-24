@@ -28,7 +28,8 @@ class UrlServiceTest extends TestCase
 
     public function testEncodeInvalidUrl()
     {
-        $response = $this->postJson(route('url.encode'), ['url' => 'invalid']);
+        $url = 'https://example.com';
+        $response = $this->postJson(route('url.encode'), ['url' => $url]);
 
         $response->assertStatus(422);
         $this->assertNull($response->json('encoded_url'));
