@@ -21,6 +21,7 @@ class UrlController extends Controller
         return response()->json([
             'message' => 'URL encoded successfully',
             'encoded_url' => $encodedUrl,
+            'try_it' => url('/' . $encodedUrl),
         ]);
     }
 
@@ -36,5 +37,14 @@ class UrlController extends Controller
             'message' => 'URL decoded successfully',
             'decoded_url' => $decodedUrl,
         ]);
+    }
+
+    public function redirect($encodedUrl)
+    {
+        $decodedUrl = $this->urlService->decode($encodedUrl);
+        if (!$decodedUrl) {
+            abort(404);
+        }
+        return redirect()->away($decodedUrl);
     }
 }
