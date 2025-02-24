@@ -58,7 +58,7 @@ To decode a shortened URL, send a POST request to the `/api/decode` endpoint wit
 
 Example:
 ```bash
-curl -X POST http://localhost:8000/api/decode -H "Content-Type: application/json" -d '{"encoded_url": "shortened_url"}'
+curl -X POST http://localhost:8000/api/decode -H "Content-Type: application/json" -d '{"url": "shortened_url"}'
 ```
 
 ## Running Tests
