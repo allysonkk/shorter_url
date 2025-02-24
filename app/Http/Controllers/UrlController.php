@@ -21,7 +21,7 @@ class UrlController extends Controller
         return response()->json([
             'message' => 'URL encoded successfully',
             'encoded_url' => $encodedUrl,
-            'try_it' => url('/' . $encodedUrl),
+            'try_it' => secure_url('/' . $encodedUrl),
         ]);
     }
 
